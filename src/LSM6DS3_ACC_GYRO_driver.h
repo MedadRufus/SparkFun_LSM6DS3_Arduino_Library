@@ -47,66 +47,6 @@ extern "C"
 {
 #endif
 
-  /* Exported types ------------------------------------------------------------*/
-
-  //these could change accordingly with the architecture
-
-#ifndef __ARCHDEP__TYPES
-#define __ARCHDEP__TYPES
-
-  typedef unsigned char u8_t;
-  typedef unsigned short int u16_t;
-  typedef unsigned int u32_t;
-  typedef int i32_t;
-  typedef short int i16_t;
-  typedef signed char i8_t;
-
-#endif /*__ARCHDEP__TYPES*/
-
-  /* Exported common structure --------------------------------------------------------*/
-
-#ifndef __SHARED__TYPES
-#define __SHARED__TYPES
-
-  typedef union
-  {
-    i16_t i16bit[3];
-    u8_t u8bit[6];
-  } Type3Axis16bit_U;
-
-  typedef union
-  {
-    i16_t i16bit;
-    u8_t u8bit[2];
-  } Type1Axis16bit_U;
-
-  typedef union
-  {
-    i32_t i32bit;
-    u8_t u8bit[4];
-  } Type1Axis32bit_U;
-
-  typedef enum
-  {
-    MEMS_SUCCESS = 0x01,
-    MEMS_ERROR = 0x00
-  } status_t;
-
-#endif /*__SHARED__TYPES*/
-
-  /* Exported macro ------------------------------------------------------------*/
-
-  /* Exported constants --------------------------------------------------------*/
-
-  /************** I2C Address *****************/
-
-#define LSM6DS3_ACC_GYRO_I2C_ADDRESS_LOW 0xD4  // SAD[0] = 0
-#define LSM6DS3_ACC_GYRO_I2C_ADDRESS_HIGH 0xD6 // SAD[0] = 1
-
-  /************** Who am I  *******************/
-
-#define LSM6DS3_ACC_GYRO_WHO_AM_I 0x69
-
 /************** Device Register  *******************/
 #define LSM6DS3_ACC_GYRO_TEST_PAGE 0X00
 #define LSM6DS3_ACC_GYRO_RAM_ACCESS 0X01
