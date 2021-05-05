@@ -338,6 +338,53 @@ status_t LSM6DS3Core::basePage( void )
 }
 
 
+/*******************************************************************************
+* Function Name  : LSM6DS3_ACC_GYRO_W_PULL_UP_EN
+* Description    : Write PULL_UP_EN
+* Input          : LSM6DS3_ACC_GYRO_PULL_UP_EN_t
+* Output         : None
+* Return         : Status [MEMS_ERROR, MEMS_SUCCESS]
+*******************************************************************************/
+status_t  LSM6DS3Core::LSM6DS3_ACC_GYRO_W_PULL_UP_EN(LSM6DS3_ACC_GYRO_PULL_UP_EN_t newValue)
+{
+  uint8_t value;
+
+  if( !readRegister(&value, LSM6DS3_ACC_GYRO_MASTER_CONFIG) )
+    return IMU_HW_ERROR;
+
+  value &= ~LSM6DS3_ACC_GYRO_PULL_UP_EN_MASK;
+  value |= newValue;
+
+  if( !writeRegister(LSM6DS3_ACC_GYRO_MASTER_CONFIG, value) )
+    return IMU_HW_ERROR;
+
+  return IMU_SUCCESS;
+}
+
+/*******************************************************************************
+* Function Name  : LSM6DS3_ACC_GYRO_W_SPI_Mode
+* Description    : Write SIM
+* Input          : LSM6DS3_ACC_GYRO_SIM_t
+* Output         : None
+* Return         : Status [MEMS_ERROR, MEMS_SUCCESS]
+*******************************************************************************/
+status_t  LSM6DS3Core::LSM6DS3_ACC_GYRO_W_SPI_Mode(LSM6DS3_ACC_GYRO_SIM_t newValue)
+{
+  uint8_t value;
+
+  if( !readRegister(&value, LSM6DS3_ACC_GYRO_CTRL3_C) )
+    return IMU_HW_ERROR;
+
+  value &= ~LSM6DS3_ACC_GYRO_SIM_MASK;
+  value |= newValue;
+
+  if( !writeRegister(LSM6DS3_ACC_GYRO_CTRL3_C, value) )
+    return IMU_HW_ERROR;
+
+  return IMU_SUCCESS;
+}
+
+
 //****************************************************************************//
 //
 //  Main user class -- wrapper for the core class + maths
