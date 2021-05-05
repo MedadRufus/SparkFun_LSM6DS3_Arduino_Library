@@ -82,6 +82,8 @@ public:
 	//Change to base page
 	status_t basePage( void );
 	
+	status_t LSM6DS3_ACC_GYRO_W_PULL_UP_EN(LSM6DS3_ACC_GYRO_PULL_UP_EN_t newValue);
+	status_t LSM6DS3_ACC_GYRO_W_SPI_Mode(LSM6DS3_ACC_GYRO_SIM_t newValue);
 private:
 	
 	//Communication stuff
@@ -896,6 +898,7 @@ typedef enum {
 	LSM6DS3_ACC_GYRO_SIM_3_WIRE 		 = 0x08,
 } LSM6DS3_ACC_GYRO_SIM_t;
 
+#define   LSM6DS3_ACC_GYRO_SIM_MASK   0x08
 /*******************************************************************************
 * Register      : CTRL3_C
 * Address       : 0X12
@@ -1287,6 +1290,7 @@ typedef enum {
 	LSM6DS3_ACC_GYRO_PULL_UP_EN_ENABLED 		 = 0x08,
 } LSM6DS3_ACC_GYRO_PULL_UP_EN_t;
 
+#define   LSM6DS3_ACC_GYRO_PULL_UP_EN_MASK    0x08
 /*******************************************************************************
 * Register      : MASTER_CONFIG
 * Address       : 0X1A
