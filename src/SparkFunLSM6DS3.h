@@ -30,6 +30,7 @@ Distributed as-is; no warranty is given.
 #include "Arduino.h"
 #include "Wire.h"
 #include "SPI.h"
+#include "LSM6DS3_ACC_GYRO_driver.h"
 
 #define I2C_MODE 0
 #define SPI_MODE 1
